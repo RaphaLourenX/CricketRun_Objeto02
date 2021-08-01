@@ -1,11 +1,39 @@
 import java.util.ArrayList;
+import java.io.*;
 
 public class AppCricket {
-	public static int CRICKETNUMBER = 10;
-	public static int GOAL = 200;
+	public static int CRICKETNUMBER;
+	public static int GOAL;
 	
 	public static void main(String[] args) {
+		
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 	System.out.println("Welcome to the CricketRace! \n Do your bets! \n We have a total of " + CRICKETNUMBER + " crickets running this time! \n");
+	
+	System.out.println("Write the number of crickets to race:\n");
+	
+	try {
+		CRICKETNUMBER = Integer.parseInt(br.readLine());
+	} catch (NumberFormatException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	
+    System.out.println("Write the length of the race track:\n");
+	
+	try {
+		GOAL = Integer.parseInt(br.readLine());
+	} catch (NumberFormatException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
 	
 	int add = 0;
 	Cricket winner;
@@ -33,9 +61,11 @@ public class AppCricket {
 		}
 	}
 	
+	
+	
 	for(int i = 0; i < podium.size(); i++) 
 	{
-		System.out.println("\nIn " + (i + 1) + "st place is the Cricket" + podium.get(i).id);
+		System.out.print((i + 1) + "st Place: Cricket " + podium.get(i).id + " [TOTAL JUMPS:" + crickets[i].jumpNumber + " / DISTANCE: " + crickets[i].totalDist +"cm]\n");
 	}
 	
 	
