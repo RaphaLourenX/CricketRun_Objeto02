@@ -8,8 +8,11 @@ public class Cricket {
 	public int totalDist; //Distância total percorrida
 	public boolean checkGoal = false;
 	
-	public int randomJump() {return (int)(1 + Math.random() * 20);}
+	public Cricket (int id) {
+		this.id = id;
+	}
 	
+	public int randomJump() {return (int)(1 + Math.random() * 20);}
 	
 	public void doJump() {
 		this.jumpNumber++;

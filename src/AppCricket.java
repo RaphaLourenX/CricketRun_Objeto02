@@ -16,8 +16,7 @@ public class AppCricket {
 	Cricket[] crickets = new Cricket[CRICKETNUMBER];
 	
 	for (int i = 0; i < crickets.length; i++) {
-		crickets[i] = new Cricket();
-		crickets[i].id = add;
+		crickets[i] = new Cricket(add);
 		add++;
 		System.out.println("Cricket " + crickets[i].id + ": I'm Ready! \n");
 	}
