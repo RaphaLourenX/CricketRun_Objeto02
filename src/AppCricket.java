@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 
 public class AppCricket {
-	public static int CRICKETNUMBER = 100;
+	public static int CRICKETNUMBER = 10;
 	public static int GOAL = 200;
 	
 	public static void main(String[] args) {
@@ -15,15 +16,31 @@ public class AppCricket {
 	
 	Cricket[] crickets = new Cricket[CRICKETNUMBER];
 	
+	//NEW IMPLEMENTATION
+	ArrayList<Cricket> podium = new ArrayList<>();
+	
 	for (int i = 0; i < crickets.length; i++) {
-		crickets[i] = new Cricket();
-		crickets[i].id = add;
-		add++;
-		System.out.println("Cricket " + crickets[i].id + ": I'm Ready! \n");
+		crickets[i] = new Cricket(i, GOAL, podium);
+		crickets[i].start();
 	}
 	
+	for (int i = 0; i < crickets.length; i++) {
+		try {
+			crickets[i].join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	for(int i = 0; i < podium.size(); i++) 
+	{
+		System.out.println("\nIn " + (i + 1) + "st place is the Cricket" + podium.get(i).id);
+	}
+	
+	
 	//EVERYBODY JUMP!
-	while(true) {
+	/*while(true) {
 	for (int i = 0; i < crickets.length; i++) {
 		if (crickets[i].checkGoal == false) {
 			crickets[i].doJump();
@@ -47,7 +64,7 @@ public class AppCricket {
 		}
 		break;
 		}
-	}
+	}*/
 	
 	}
 }

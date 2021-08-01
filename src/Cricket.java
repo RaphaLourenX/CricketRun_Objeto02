@@ -1,7 +1,19 @@
+import java.lang.Thread;
+import java.util.ArrayList;
 
-public class Cricket {
+public class Cricket extends Thread{
 	// [ATRIBUTOS]
-	public int id = 0;
+	public int id;
+	private int goal;
+	private ArrayList<Cricket> podium;
+	
+	public Cricket(int id, int goal, ArrayList<Cricket> podium) 
+	{
+		this.id = id;
+		this.goal = goal;
+		this.podium = podium;
+		System.out.println("Cricket" + id + " initialized.");
+	}
 	
 	public int jumpNumber; //Total de Pulos que o Grilo deu
 	public int jumpDist; //Distância que pulou no pulo atual
@@ -19,6 +31,20 @@ public class Cricket {
 				+ "Cricket " + this.id + " total distance: " + this.totalDist+ "cm.\n"
 				+ "Cricket " + this.id + " jumped " + this.jumpNumber + " times. \n");
 		
+	}
+	
+	@Override
+	public void run() 
+	{
+		
+		System.out.println("\nCricket" + id+ " is running.");
+		
+		while(totalDist < goal) 
+		{
+			doJump();
+		}
+		System.out.println("\nCricket" + id + " Completed the race with " + jumpNumber + " jumps.");
+		podium.add(this);
 	}
 
 }
