@@ -10,9 +10,34 @@ public class AppCricket {
 		
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-	System.out.println("Welcome to the CricketRace! \n Do your bets! \n We have a total of " + CRICKETNUMBER + " crickets running this time! \n");
+	System.out.println("              _______  _______ _________ _______  _        _______ _________\r\n"
+			+ "             (  ____ \\(  ____ )\\__   __/(  ____ \\| \\    /\\(  ____ \\\\__   __/\r\n"
+			+ "             | (    \\/| (    )|   ) (   | (    \\/|  \\  / /| (    \\/   ) (   \r\n"
+			+ "             | |      | (____)|   | |   | |      |  (_/ / | (__       | |   \r\n"
+			+ "             | |      |     __)   | |   | |      |   _ (  |  __)      | |   \r\n"
+			+ "             | |      | (\\ (      | |   | |      |  ( \\ \\ | (         | |   \r\n"
+			+ "             | (____/\\| ) \\ \\_____) (___| (____/\\|  /  \\ \\| (____/\\   | |   \r\n"
+			+ "             (_______/|/   \\__/\\_______/(_______/|_/    \\/(_______/   )_(   \r\n"
+			+ "                                                                            \r\n"
+			+ "                            _______  _______  _______  _______ \r\n"
+			+ "                           (  ____ )(  ___  )(  ____ \\(  ____ \\\r\n"
+			+ "                           | (    )|| (   ) || (    \\/| (    \\/\r\n"
+			+ "                           | (____)|| (___) || |      | (__    \r\n"
+			+ "                           |     __)|  ___  || |      |  __)   \r\n"
+			+ "                           | (\\ (   | (   ) || |      | (      \r\n"
+			+ "                           | ) \\ \\__| )   ( || (____/\\| (____/\\\r\n"
+			+ "                           |/   \\__/|/     \\|(_______/(_______/\r\n"
+			+ "                                                               \r\n"
+			+ "     _______ _________ _______           _        _______ _________ _______  _______ \r\n"
+			+ "    (  ____ \\\\__   __/(       )|\\     /|( \\      (  ___  )\\__   __/(  ___  )(  ____ )\r\n"
+			+ "    | (    \\/   ) (   | () () || )   ( || (      | (   ) |   ) (   | (   ) || (    )|\r\n"
+			+ "    | (_____    | |   | || || || |   | || |      | (___) |   | |   | |   | || (____)|\r\n"
+			+ "    (_____  )   | |   | |(_)| || |   | || |      |  ___  |   | |   | |   | ||     __)\r\n"
+			+ "          ) |   | |   | |   | || |   | || |      | (   ) |   | |   | |   | || (\\ (   \r\n"
+			+ "    /\\____) |___) (___| )   ( || (___) || (____/\\| )   ( |   | |   | (___) || ) \\ \\__\r\n"
+			+ "    \\_______)\\_______/|/     \\|(_______)(_______/|/     \\|   )_(   (_______)|/   \\__/");
 	
-	System.out.println("Write the number of crickets to race:\n");
+	System.out.println("\n \n Write the number of crickets to race:\n");
 	
 	try {
 		CRICKETNUMBER = Integer.parseInt(br.readLine());
@@ -66,36 +91,9 @@ public class AppCricket {
 	
 	for(int i = 0; i < podium.size(); i++) 
 	{
-		System.out.print((i + 1) + "st Place: Cricket " + podium.get(i).id + " [TOTAL JUMPS:" + podium.get(i).jumpNumber + " / DISTANCE: " + podium.get(i).totalDist +"cm]\n");
+		System.out.print((i + 1) + "st Place: Cricket " + podium.get(i).id + " [TOTAL JUMPS:" + podium.get(i).jumpNumber + 
+				" / DISTANCE: " + podium.get(i).totalDist +"cm]\n");
 	}
-	
-	
-	//EVERYBODY JUMP!
-	/*while(true) {
-	for (int i = 0; i < crickets.length; i++) {
-		if (crickets[i].checkGoal == false) {
-			crickets[i].doJump();
-			
-			if(crickets[i].totalDist >= GOAL) 
-			{
-				crickets[i].checkGoal = true;
-				System.out.print("\n == Cricket " + i + " crossed the finish line in " + goalPodium + "st Place with a total of " + crickets[i].jumpNumber + " jumps! == \n \n");
-				winnersPodium[goalPodium] = crickets[i].id;
-				goalPodium++;
-				
-				if (goalPodium >= CRICKETNUMBER + 1) endRun = true;
-			}
-		}
-
-	}
-	
-	if(endRun) {
-		for (int i = 1; i < winnersPodium.length; i++) {
-			System.out.print(i + "st Place: Cricket " + winnersPodium[i] + " [TOTAL JUMPS:" + crickets[winnersPodium[i]].jumpNumber + " / DISTANCE: " + crickets[winnersPodium[i]].totalDist +"cm]\n");
-		}
-		break;
-		}
-	}*/
 	
 	}
 }

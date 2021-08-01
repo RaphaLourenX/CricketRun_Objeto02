@@ -27,7 +27,8 @@ public class Cricket extends Thread implements Comparable{
 		this.jumpNumber++;
 		this.jumpDist = randomJump();
 		this.totalDist += this.jumpDist;
-		System.out.println("Cricket " + this.id + " jumped " + this.jumpDist + "cm. \n"
+		System.out.println("   [ " + this.currentThread().getName() + " ]\n" +
+				"Cricket " + this.id + " jumped " + this.jumpDist + "cm. \n"
 				+ "Cricket " + this.id + " total distance: " + this.totalDist+ "cm.\n"
 				+ "Cricket " + this.id + " jumped " + this.jumpNumber + " times. \n");
 		
@@ -43,7 +44,7 @@ public class Cricket extends Thread implements Comparable{
 		{
 			doJump();
 		}
-		System.out.println("\nCricket" + id + " Completed the race with " + jumpNumber + " jumps.");
+		System.out.println("\n == Cricket" + id + " Completed the race with " + jumpNumber + " jumps. ==\n");
 		podium.add(this);
 	}
 
