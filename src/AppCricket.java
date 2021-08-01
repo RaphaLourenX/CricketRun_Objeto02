@@ -1,6 +1,6 @@
 
 public class AppCricket {
-	public static int CRICKETNUMBER = 100;
+	public static int CRICKETNUMBER = 5;
 	public static int GOAL = 200;
 	
 	public static void main(String[] args) {
@@ -16,17 +16,24 @@ public class AppCricket {
 	Cricket[] crickets = new Cricket[CRICKETNUMBER];
 	
 	for (int i = 0; i < crickets.length; i++) {
-		crickets[i] = new Cricket(add);
+		crickets[i] = new Cricket(add, GOAL);
+		crickets[i].start();
 		add++;
-		System.out.println("Cricket " + crickets[i].id + ": I'm Ready! \n");
 	}
 	
 	//EVERYBODY JUMP!
 	while(true) {
 	for (int i = 0; i < crickets.length; i++) {
+		
+		try {
+			crickets[i].join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		if (crickets[i].checkGoal == false) {
 			crickets[i].doJump();
-			
 			if(crickets[i].totalDist >= GOAL) 
 			{
 				crickets[i].checkGoal = true;
@@ -36,16 +43,16 @@ public class AppCricket {
 				
 				if (goalPodium >= CRICKETNUMBER + 1) endRun = true;
 			}
-		}
+		} 
 
 	}
-	
+	/*
 	if(endRun) {
 		for (int i = 1; i < winnersPodium.length; i++) {
 			System.out.print(i + "st Place: Cricket " + winnersPodium[i] + " [TOTAL JUMPS:" + crickets[winnersPodium[i]].jumpNumber + " / DISTANCE: " + crickets[winnersPodium[i]].totalDist +"cm]\n");
 		}
 		break;
-		}
+		} */
 	}
 	
 	}
