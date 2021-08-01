@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Collections;
 
 public class AppCricket {
 	public static int CRICKETNUMBER;
@@ -61,17 +62,7 @@ public class AppCricket {
 		}
 	}
 	
-	for(int i=0; i < podium.size(); i++){  
-        for(int j=1; j < (podium.size()-i); j++){  
-                 if(podium.get(j-1).jumpNumber > podium.get(j).jumpNumber){  
-                        //swap elements  
-                        int temp = podium.get(j-1).jumpNumber;  
-                        podium.get(j-1).jumpNumber = podium.get(j).jumpNumber;  
-                        podium.get(j).jumpNumber = temp;  
-                }  
-                 
-        }  
-}  
+	Collections.sort(podium);
 	
 	for(int i = 0; i < podium.size(); i++) 
 	{

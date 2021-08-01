@@ -1,7 +1,7 @@
 import java.lang.Thread;
 import java.util.ArrayList;
 
-public class Cricket extends Thread{
+public class Cricket extends Thread implements Comparable{
 	// [ATRIBUTOS]
 	public int id;
 	private int goal;
@@ -45,6 +45,14 @@ public class Cricket extends Thread{
 		}
 		System.out.println("\nCricket" + id + " Completed the race with " + jumpNumber + " jumps.");
 		podium.add(this);
+	}
+
+
+	@Override
+	public int compareTo(Object c) {
+		// TODO Auto-generated method stub
+		int compareJumps = ((Cricket) c).jumpNumber;
+		return this.jumpNumber - compareJumps;
 	}
 
 }
