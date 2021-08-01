@@ -61,11 +61,21 @@ public class AppCricket {
 		}
 	}
 	
-	
+	for(int i=0; i < podium.size(); i++){  
+        for(int j=1; j < (podium.size()-i); j++){  
+                 if(podium.get(j-1).jumpNumber > podium.get(j).jumpNumber){  
+                        //swap elements  
+                        int temp = podium.get(j-1).jumpNumber;  
+                        podium.get(j-1).jumpNumber = podium.get(j).jumpNumber;  
+                        podium.get(j).jumpNumber = temp;  
+                }  
+                 
+        }  
+}  
 	
 	for(int i = 0; i < podium.size(); i++) 
 	{
-		System.out.print((i + 1) + "st Place: Cricket " + podium.get(i).id + " [TOTAL JUMPS:" + crickets[i].jumpNumber + " / DISTANCE: " + crickets[i].totalDist +"cm]\n");
+		System.out.print((i + 1) + "st Place: Cricket " + podium.get(i).id + " [TOTAL JUMPS:" + podium.get(i).jumpNumber + " / DISTANCE: " + podium.get(i).totalDist +"cm]\n");
 	}
 	
 	
