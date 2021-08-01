@@ -6,6 +6,7 @@ public class Cricket {
 	public int jumpNumber; //Total de Pulos que o Grilo deu
 	public int jumpDist; //Distância que pulou no pulo atual
 	public int totalDist; //Distância total percorrida
+	public boolean checkGoal = false;
 	
 	public int randomJump() {return (int)(1 + Math.random() * 20);}
 	

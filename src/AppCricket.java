@@ -1,6 +1,6 @@
 
 public class AppCricket {
-	public static int CRICKETNUMBER = 1000;
+	public static int CRICKETNUMBER = 100;
 	public static int GOAL = 200;
 	
 	public static void main(String[] args) {
@@ -8,7 +8,10 @@ public class AppCricket {
 	
 	int add = 0;
 	Cricket winner;
-	boolean hasWinner = false;
+	boolean endRun = false;
+	
+	int[] winnersPodium = new int[CRICKETNUMBER + 1];
+	int goalPodium = 1;
 	
 	Cricket[] crickets = new Cricket[CRICKETNUMBER];
 	
@@ -22,15 +25,28 @@ public class AppCricket {
 	//EVERYBODY JUMP!
 	while(true) {
 	for (int i = 0; i < crickets.length; i++) {
-		crickets[i].doJump();
-		if(crickets[i].totalDist > GOAL) 
-		{
-			winner = crickets[i];
-		    System.out.println("The winner is Cricket" + crickets[i].id + ".");
-		    hasWinner = true;
+		if (crickets[i].checkGoal == false) {
+			crickets[i].doJump();
+			
+			if(crickets[i].totalDist >= GOAL) 
+			{
+				crickets[i].checkGoal = true;
+				System.out.print("\n == Cricket " + i + " crossed the finish line in " + goalPodium + "st Place with a total of " + crickets[i].jumpNumber + " jumps! == \n \n");
+				winnersPodium[goalPodium] = crickets[i].id;
+				goalPodium++;
+				
+				if (goalPodium >= CRICKETNUMBER + 1) endRun = true;
+			}
 		}
+
 	}
-	if(hasWinner) break;
+	
+	if(endRun) {
+		for (int i = 1; i < winnersPodium.length; i++) {
+			System.out.print(i + "st Place: Cricket " + winnersPodium[i] + " [TOTAL JUMPS:" + crickets[winnersPodium[i]].jumpNumber + " / DISTANCE: " + crickets[winnersPodium[i]].totalDist +"cm]\n");
+		}
+		break;
+		}
 	}
 	
 	}
